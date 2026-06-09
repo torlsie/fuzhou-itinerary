@@ -25,6 +25,9 @@ const twdResult = document.querySelector("#twdResult");
 const rateStatus = document.querySelector("#rateStatus");
 const weatherGrid = document.querySelector("#weatherGrid");
 const weatherStatus = document.querySelector("#weatherStatus");
+const flightTool = Array.from(document.querySelectorAll(".tool")).find((tool) => {
+  return tool.querySelector("h2")?.textContent.trim() === "航班與集合";
+});
 
 function formatTwd(value) {
   return new Intl.NumberFormat("zh-TW", {
@@ -60,12 +63,20 @@ async function loadRate() {
       updateConversion();
       return;
     } catch {
+      // Try the next public endpoint, then fall back to the editable default rate.
     }
   }
 
   rateStatus.textContent = "可手動調整匯率";
   updateConversion();
 }
+
+[rmbInput, rateInput].forEach((input) => {
+  input.addEventListener("input", updateConversion);
+});
+
+updateConversion();
+loadRate();
 
 const weatherLabels = new Map([
   [0, "晴朗"],
@@ -136,10 +147,67 @@ async function loadWeather() {
   }
 }
 
-[rmbInput, rateInput].forEach((input) => {
-  input.addEventListener("input", updateConversion);
-});
-
-updateConversion();
-loadRate();
 loadWeather();
+
+function setupGatheringCountdown() {
+  if (!flightTool) return;
+
+  const style = document.createElement("style");
+  style.textContent = `
+    .countdown {
+      display: grid;
+      gap: 4px;
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fff8e8;
+    }
+
+    .countdown__label,
+    .countdown__target {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .countdown__time {
+      color: var(--gold);
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+  `;
+  document.head.append(style);
+
+  const countdown = document.createElement("div");
+  countdown.className = "countdown";
+  countdown.innerHTML = `
+    <span class="countdown__label">集合倒數</span>
+    <strong class="countdown__time" id="gatheringCountdown">計算中</strong>
+    <span class="countdown__target">06/26 08:30 桃園機場第二航廈</span>
+  `;
+  flightTool.append(countdown);
+
+  const output = countdown.querySelector("#gatheringCountdown");
+  const target = new Date("2026-06-26T08:30:00+08:00").getTime();
+
+  function renderCountdown() {
+    const diff = target - Date.now();
+
+    if (diff <= 0) {
+      output.textContent = "已到集合時間";
+      return;
+    }
+
+    const totalMinutes = Math.floor(diff / 60000);
+    const days = Math.floor(totalMinutes / 1440);
+    const hours = Math.floor((totalMinutes % 1440) / 60);
+    const minutes = totalMinutes % 60;
+
+    output.textContent = `${days}天 ${hours}小時 ${minutes}分`;
+  }
+
+  renderCountdown();
+  setInterval(renderCountdown, 30000);
+}
+
+setupGatheringCountdown();
