@@ -1,30 +1,168 @@
 <!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>福州會議研討5日行程</title>
-<style>
-:root{--ink:#18201f;--muted:#64706d;--line:#d9e1dd;--paper:#f7f5ee;--panel:#fff;--green:#1f6d5a;--teal:#0b8790;--gold:#c8922b;--rose:#b64a5c;--shadow:0 18px 45px rgba(24,32,31,.12)}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;line-height:1.6}a{color:inherit}.hero{min-height:300px;display:grid;align-items:end;padding:34px 18px;background:linear-gradient(135deg,#103f37,#0e6070 58%,#e3b04b);color:#fff}.hero__copy{width:min(1040px,100%);margin:0 auto;text-shadow:0 2px 18px rgba(0,0,0,.3)}h1,h2,h3,h4,p{margin-top:0}h1{max-width:860px;margin-bottom:8px;font-size:clamp(2.1rem,7vw,4.7rem);line-height:1.08;letter-spacing:0}.hero__dates{margin-bottom:0;font-size:1.05rem}main{width:min(1040px,calc(100% - 28px));margin:-26px auto 48px}.quick-panel,.tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.quick-panel{margin-bottom:12px}.quick-action,.tool,.itinerary,.notice,.reference,.weather-panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow)}.quick-action{display:flex;flex-direction:column;gap:4px;min-height:84px;padding:16px;text-decoration:none}.quick-action__label,.section-head span,label span{color:var(--muted);font-size:.86rem}.quick-action__value{color:var(--green);font-weight:800}.tool,.itinerary,.notice,.reference,.weather-panel{padding:18px}.tool-grid,.weather-panel{margin-bottom:12px}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}.section-head h2{margin:0;font-size:1.18rem}.weather-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.weather-card{min-height:116px;display:grid;gap:4px;align-content:start;border:1px solid var(--line);border-radius:8px;padding:12px;background:#f8fbfa;text-decoration:none}.weather-card__date{color:var(--muted);font-size:.86rem}.weather-card__main{color:var(--green);font-size:1.7rem;font-weight:900;line-height:1.15}.weather-card__desc{font-weight:800}.weather-card__rain{color:var(--muted);font-size:.92rem}.weather-card--loading{grid-column:1/-1;min-height:68px;color:var(--muted)}.converter{display:grid;gap:12px}label{display:grid;gap:6px}input{width:100%;min-height:46px;border:1px solid var(--line);border-radius:8px;padding:8px 12px;color:var(--ink);font:inherit}input:focus,button:focus-visible,a:focus-visible{outline:3px solid rgba(11,135,144,.28);outline-offset:2px}.result{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:56px;border-radius:8px;padding:12px 14px;background:#edf7f5}.result strong{color:var(--teal);font-size:1.45rem}.compact-list{display:grid;gap:10px;padding:0;margin:0;list-style:none}.compact-list li{display:grid;grid-template-columns:56px 1fr;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}.compact-list li:last-child{border-bottom:0;padding-bottom:0}.compact-list strong{color:var(--gold)}.itinerary,.notice,.reference{margin-top:12px}.tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-bottom:16px}.tab{min-height:44px;border:1px solid var(--line);border-radius:8px;background:#f5faf8;color:var(--muted);font:inherit;font-weight:700;cursor:pointer}.tab.is-active{border-color:var(--green);background:var(--green);color:#fff}.day__title p{margin-bottom:2px;color:var(--rose);font-weight:800}.day__title h3{margin-bottom:14px;font-size:1.35rem;line-height:1.35}.timeline{display:grid;gap:12px;padding:0;margin:0;list-style:none}.timeline li{display:grid;grid-template-columns:74px 1fr;gap:12px;align-items:start}.timeline time{min-height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;background:#fff3cf;color:#7a510f;font-weight:900}.day__meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.day__meta span{border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:#fafafa;color:var(--muted);font-size:.92rem}.spotlight{margin-top:16px;border-left:4px solid var(--teal);padding:12px 14px;background:#eef8f8;border-radius:0 8px 8px 0}.spotlight h4{margin-bottom:4px}.spotlight p{margin-bottom:0}.notice ul{padding-left:1.2rem;margin:0}.notice li+li{margin-top:8px}.reference table{width:100%;border-collapse:collapse;background:#fff}.reference th,.reference td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}.reference th{background:#f5faf8;color:var(--green)}@media(max-width:760px){.hero{min-height:260px;padding:24px 14px}main{width:min(100% - 20px,1040px)}.quick-panel,.tool-grid,.weather-grid{grid-template-columns:1fr}.tool,.itinerary,.notice,.reference,.weather-panel{padding:14px}.section-head{align-items:start;flex-direction:column;gap:2px}.tabs{grid-template-columns:repeat(5,72px);overflow-x:auto;padding-bottom:4px}.tab{width:72px}.timeline li{grid-template-columns:64px 1fr;gap:10px}.day__title h3{font-size:1.16rem}.reference{overflow-x:auto}.reference table{min-width:620px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>福州會議研討5日行程</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="hero"><div class="hero__copy"><h1>福州會議研討5日</h1><p class="hero__dates">2026/06/26 - 06/30 · 福州</p></div></header>
-<main>
-<section class="quick-panel" aria-label="旅程快速資訊"><a class="quick-action" href="https://m.nmc.cn/publish/forecast/AFJ/fuzhou.html" target="_blank" rel="noopener"><span class="quick-action__label">福州天氣</span><span class="quick-action__value">查看完整 7 日預報</span></a><a class="quick-action" href="tel:+886933385392"><span class="quick-action__label">協助人員</span><span class="quick-action__value">胡依蓁 0933-385392</span></a></section>
-<section class="weather-panel" aria-label="福州三日天氣"><div class="section-head"><h2>福州 3 日天氣</h2><span id="weatherStatus">天氣載入中</span></div><div class="weather-grid" id="weatherGrid" aria-live="polite"><div class="weather-card weather-card--loading">讀取預報中</div></div></section>
-<section class="tool-grid"><div class="tool"><div class="section-head"><h2>人民幣換台幣</h2><span id="rateStatus">匯率載入中</span></div><div class="converter"><label><span>人民幣 RMB</span><input id="rmbInput" inputmode="decimal" type="number" min="0" step="0.01" value="100"></label><label><span>匯率 1 RMB = TWD</span><input id="rateInput" inputmode="decimal" type="number" min="0" step="0.0001" value="4.45"></label><div class="result" aria-live="polite"><span>約新台幣</span><strong id="twdResult">NT$445</strong></div></div></div><div class="tool"><div class="section-head"><h2>航班與集合</h2></div><ul class="compact-list"><li><strong>集合</strong><span>06/26 08:30 桃園國際機場第二航廈出境大廳，廈門航空櫃台</span></li><li><strong>去程</strong><span>06/26 MF880 桃園 - 福州 11:25 - 13:10</span></li><li><strong>回程</strong><span>06/30 MF879 福州 - 桃園 08:45 - 10:25</span></li></ul></div></section>
-<section class="itinerary" aria-label="每日行程"><div class="section-head"><h2>每日行程</h2><span>點選日期切換</span></div><div class="tabs" role="tablist" aria-label="5日行程分頁"><button class="tab is-active" id="tab-day1" role="tab" aria-selected="true" aria-controls="day1" data-day="day1">第1日</button><button class="tab" id="tab-day2" role="tab" aria-selected="false" aria-controls="day2" data-day="day2">第2日</button><button class="tab" id="tab-day3" role="tab" aria-selected="false" aria-controls="day3" data-day="day3">第3日</button><button class="tab" id="tab-day4" role="tab" aria-selected="false" aria-controls="day4" data-day="day4">第4日</button><button class="tab" id="tab-day5" role="tab" aria-selected="false" aria-controls="day5" data-day="day5">第5日</button></div>
-<article class="day is-active" id="day1" role="tabpanel" aria-labelledby="tab-day1"><div class="day__title"><p>06/26 星期五</p><h3>桃園 - 福州 - 中庚喜來登註冊 - 晚餐</h3></div><ol class="timeline"><li><time>08:30</time><span>桃園國際機場第二航廈集合，廈門航空櫃台。</span></li><li><time>11:25</time><span>搭乘 MF880 前往福州長樂機場，預計 13:10 抵達。</span></li><li><time>下午</time><span>抵達福州後前往中庚喜來登大酒店辦理註冊。</span></li><li><time>17:50</time><span>集合，與第 1 梯共用晚餐。</span></li></ol><div class="day__meta"><span>晚餐：中庚喜來登大酒店</span><span>住宿：中庚喜來登大酒店</span><span>電話：0591-88556666</span></div></article>
-<article class="day" id="day2" role="tabpanel" aria-labelledby="tab-day2" hidden><div class="day__title"><p>06/27 星期六</p><h3>研討會開幕 - 自費平潭島活動</h3></div><ol class="timeline"><li><time>08:00</time><span>早上研討會議開幕。</span></li><li><time>10:30</time><span>自費平潭島活動集合。</span></li><li><time>全天</time><span>可依會議安排或自費行程調整；平潭島為福建第一大島，以海岸景觀與沙灘聞名。</span></li></ol><div class="day__meta"><span>早餐：飯店內</span><span>住宿：中庚喜來登大酒店</span><span>電話：0591-88556666</span></div></article>
-<article class="day" id="day3" role="tabpanel" aria-labelledby="tab-day3" hidden><div class="day__title"><p>06/28 星期日</p><h3>專題會議口報 - 閉幕式 - 自由活動</h3></div><ol class="timeline"><li><time>上午</time><span>專題會議口報。</span></li><li><time>下午</time><span>閉幕式後自由活動。</span></li><li><time>13:30</time><span>集合，可安排三坊七巷、林覺民故居、西湖公園等福州文化景點。</span></li></ol><div class="spotlight"><h4>景點亮點</h4><p>三坊七巷是福州歷史文化街區，由三個坊、七條巷和南後街組成；西湖公園具古典園林風格，適合散步與拍照。</p></div><div class="day__meta"><span>住宿：中庚喜來登大酒店</span><span>電話：0591-88556666</span></div></article>
-<article class="day" id="day4" role="tabpanel" aria-labelledby="tab-day4" hidden><div class="day__title"><p>06/29 星期一</p><h3>飯店 - 於山風景區 - 午餐 - 熊貓世界 - 閩越水鎮</h3></div><ol class="timeline"><li><time>上午</time><span>前往於山風景區，欣賞白塔、古榕、亭榭與福州城區景觀。</span></li><li><time>中午</time><span>午餐。</span></li><li><time>下午</time><span>參觀熊貓世界，了解大熊貓保育與科普展區。</span></li><li><time>晚間</time><span>前往閩越水鎮，可欣賞水鄉夜景與大型光影秀。</span></li></ol><div class="day__meta"><span>住宿：安嘉悅酒店</span><span>電話：0591-83728888</span></div></article>
-<article class="day" id="day5" role="tabpanel" aria-labelledby="tab-day5" hidden><div class="day__title"><p>06/30 星期二</p><h3>福州 - 桃園</h3></div><ol class="timeline"><li><time>清晨</time><span>前往福州長樂機場。</span></li><li><time>08:45</time><span>搭乘 MF879 返回桃園。</span></li><li><time>10:25</time><span>抵達桃園，結束福州會議行程。</span></li></ol><div class="day__meta"><span>早餐：可愛的家</span><span>請預留機場交通與托運時間</span></div></article></section>
-<section class="reference"><div class="section-head"><h2>紙本行程摘要</h2><span>依標準行程整理</span></div><table><thead><tr><th>日期</th><th>行程</th><th>住宿 / 電話</th></tr></thead><tbody><tr><td>06/26</td><td>桃園飛福州，中庚喜來登註冊，17:50 集合晚餐</td><td>中庚喜來登大酒店 0591-88556666</td></tr><tr><td>06/27</td><td>研討會開幕，自費平潭島活動 10:30 集合</td><td>中庚喜來登大酒店 0591-88556666</td></tr><tr><td>06/28</td><td>專題會議口報、下午閉幕式，自由活動，13:30 集合三坊七巷、林覺民故居、西湖公園</td><td>中庚喜來登大酒店 0591-88556666</td></tr><tr><td>06/29</td><td>於山風景區、午餐、熊貓世界、閩越水鎮</td><td>安嘉悅酒店 0591-83728888</td></tr><tr><td>06/30</td><td>福州飛桃園</td><td>可愛的家</td></tr></tbody></table></section>
-<section class="notice"><div class="section-head"><h2>注意事項</h2></div><ul><li>行李托運限 1 件，不可超過 23 公斤；手提 1 件 7 公斤。</li><li>入境與出境大陸，如攜帶行動電源，額定能量不可超過 200Wh，輸出與輸入標示需清楚。</li><li>目前福建地區氣溫約 32-26 度，請攜帶防曬用品、雨具與薄外套。</li><li>中國大陸電壓為 220V，插座常見 2 孔圓形、2 孔扁型，建議自備轉接插頭。</li></ul></section>
-</main>
-<script>
-const tabs=document.querySelectorAll('.tab'),days=document.querySelectorAll('.day');tabs.forEach(tab=>{tab.addEventListener('click',()=>{const target=tab.dataset.day;tabs.forEach(item=>{const selected=item===tab;item.classList.toggle('is-active',selected);item.setAttribute('aria-selected',String(selected))});days.forEach(day=>{const selected=day.id===target;day.classList.toggle('is-active',selected);day.hidden=!selected})})});const rmbInput=document.querySelector('#rmbInput'),rateInput=document.querySelector('#rateInput'),twdResult=document.querySelector('#twdResult'),rateStatus=document.querySelector('#rateStatus'),weatherGrid=document.querySelector('#weatherGrid'),weatherStatus=document.querySelector('#weatherStatus');function formatTwd(value){return new Intl.NumberFormat('zh-TW',{style:'currency',currency:'TWD',maximumFractionDigits:0}).format(value||0)}function updateConversion(){twdResult.textContent=formatTwd(Number(rmbInput.value)*Number(rateInput.value))}async function loadRate(){const endpoints=['https://latest.currency-api.pages.dev/v1/currencies/cny.json','https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/cny.json'];for(const endpoint of endpoints){try{const response=await fetch(endpoint,{cache:'no-store'});if(!response.ok)continue;const data=await response.json();const rate=Number(data?.cny?.twd);if(!rate)continue;rateInput.value=rate.toFixed(4);rateStatus.textContent=`即時匯率 ${data.date||''}`;updateConversion();return}catch{}}rateStatus.textContent='可手動調整匯率';updateConversion()}const weatherLabels=new Map([[0,'晴朗'],[1,'大致晴朗'],[2,'局部多雲'],[3,'多雲'],[45,'有霧'],[48,'霧凇'],[51,'小毛雨'],[53,'毛雨'],[55,'大毛雨'],[61,'小雨'],[63,'雨'],[65,'大雨'],[80,'短暫陣雨'],[81,'陣雨'],[82,'強陣雨'],[95,'雷雨'],[96,'雷雨伴冰雹'],[99,'強雷雨伴冰雹']]);function formatWeatherDate(value){return new Intl.DateTimeFormat('zh-TW',{month:'numeric',day:'numeric',weekday:'short'}).format(new Date(`${value}T00:00:00+08:00`))}function renderWeather(data){const daily=data.daily;weatherGrid.innerHTML=daily.time.map((date,index)=>{const max=Math.round(daily.temperature_2m_max[index]),min=Math.round(daily.temperature_2m_min[index]),code=daily.weather_code[index],rain=daily.precipitation_probability_max[index],desc=weatherLabels.get(code)||'天氣變化';return `<article class="weather-card"><span class="weather-card__date">${formatWeatherDate(date)}</span><strong class="weather-card__main">${min}-${max}°C</strong><span class="weather-card__desc">${desc}</span><span class="weather-card__rain">降雨機率 ${rain??'--'}%</span></article>`}).join('')}async function loadWeather(){const endpoint='https://api.open-meteo.com/v1/forecast?latitude=26.0614&longitude=119.3061&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FShanghai&forecast_days=3';try{const response=await fetch(endpoint,{cache:'no-store'});if(!response.ok)throw new Error('weather unavailable');const data=await response.json();renderWeather(data);weatherStatus.textContent='即時更新'}catch{weatherStatus.textContent='可查看完整預報';weatherGrid.innerHTML='<a class="weather-card weather-card--loading" href="https://m.nmc.cn/publish/forecast/AFJ/fuzhou.html" target="_blank" rel="noopener">天氣暫時無法載入，點此查看中央氣象台福州預報</a>'}}[rmbInput,rateInput].forEach(input=>input.addEventListener('input',updateConversion));updateConversion();loadRate();loadWeather();
-</script>
+  <header class="hero">
+    <div class="hero__copy">
+      <h1>福州會議研討5日</h1>
+      <p class="hero__dates">2026/06/26 - 06/30 · 福州</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="weather-panel" aria-label="福州三日天氣">
+      <div class="section-head">
+        <h2>福州 3 日天氣</h2>
+        <span id="weatherStatus">天氣載入中</span>
+      </div>
+      <div class="weather-grid" id="weatherGrid" aria-live="polite">
+        <div class="weather-card weather-card--loading">讀取預報中</div>
+      </div>
+    </section>
+
+    <section class="quick-panel" aria-label="完整天氣預報">
+      <a class="quick-action" href="https://m.nmc.cn/publish/forecast/AFJ/fuzhou.html" target="_blank" rel="noopener">
+        <span class="quick-action__label">福州天氣</span>
+        <span class="quick-action__value">查看完整 7 日預報</span>
+      </a>
+    </section>
+
+    <section class="tool-grid">
+      <div class="tool">
+        <div class="section-head">
+          <h2>人民幣換台幣</h2>
+          <span id="rateStatus">匯率載入中</span>
+        </div>
+        <div class="converter">
+          <label>
+            <span>人民幣 RMB</span>
+            <input id="rmbInput" inputmode="decimal" type="number" min="0" step="0.01" value="100">
+          </label>
+          <label>
+            <span>匯率 1 RMB = TWD</span>
+            <input id="rateInput" inputmode="decimal" type="number" min="0" step="0.0001" value="4.45">
+          </label>
+          <div class="result" aria-live="polite">
+            <span>約新台幣</span>
+            <strong id="twdResult">NT$445</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool">
+        <div class="section-head">
+          <h2>航班與集合</h2>
+        </div>
+        <ul class="compact-list">
+          <li><strong>集合</strong><span>06/26 08:30 桃園國際機場第二航廈出境大廳，廈門航空櫃台</span></li>
+          <li><strong>去程</strong><span>06/26 MF880 桃園 - 福州 11:25 - 13:10</span></li>
+          <li><strong>回程</strong><span>06/30 MF879 福州 - 桃園 08:45 - 10:25</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="itinerary" aria-label="每日行程">
+      <div class="section-head">
+        <h2>每日行程</h2>
+        <span>點選日期切換</span>
+      </div>
+      <div class="tabs" role="tablist" aria-label="5日行程分頁">
+        <button class="tab is-active" id="tab-day1" role="tab" aria-selected="true" aria-controls="day1" data-day="day1">第1日</button>
+        <button class="tab" id="tab-day2" role="tab" aria-selected="false" aria-controls="day2" data-day="day2">第2日</button>
+        <button class="tab" id="tab-day3" role="tab" aria-selected="false" aria-controls="day3" data-day="day3">第3日</button>
+        <button class="tab" id="tab-day4" role="tab" aria-selected="false" aria-controls="day4" data-day="day4">第4日</button>
+        <button class="tab" id="tab-day5" role="tab" aria-selected="false" aria-controls="day5" data-day="day5">第5日</button>
+      </div>
+
+      <article class="day is-active" id="day1" role="tabpanel" aria-labelledby="tab-day1">
+        <div class="day__title"><p>06/26 星期五</p><h3>桃園 - 福州 - 中庚喜來登註冊 - 晚餐</h3></div>
+        <ol class="timeline">
+          <li><time>08:30</time><span>桃園國際機場第二航廈集合，廈門航空櫃台。</span></li>
+          <li><time>11:25</time><span>搭乘 MF880 前往福州長樂機場，預計 13:10 抵達。</span></li>
+          <li><time>下午</time><span>抵達福州後前往中庚喜來登大酒店辦理註冊。</span></li>
+          <li><time>17:50</time><span>集合，與第 1 梯共用晚餐。</span></li>
+        </ol>
+        <div class="day__meta"><span>晚餐：中庚喜來登大酒店</span><span>住宿：中庚喜來登大酒店</span><span>電話：0591-88556666</span></div>
+      </article>
+
+      <article class="day" id="day2" role="tabpanel" aria-labelledby="tab-day2" hidden>
+        <div class="day__title"><p>06/27 星期六</p><h3>研討會開幕 - 自費平潭島活動</h3></div>
+        <ol class="timeline">
+          <li><time>08:00</time><span>早上研討會議開幕。</span></li>
+          <li><time>10:30</time><span>自費平潭島活動集合。</span></li>
+          <li><time>全天</time><span>可依會議安排或自費行程調整；平潭島為福建第一大島，以海岸景觀與沙灘聞名。</span></li>
+        </ol>
+        <div class="day__meta"><span>早餐：飯店內</span><span>住宿：中庚喜來登大酒店</span><span>電話：0591-88556666</span></div>
+      </article>
+
+      <article class="day" id="day3" role="tabpanel" aria-labelledby="tab-day3" hidden>
+        <div class="day__title"><p>06/28 星期日</p><h3>專題會議口報 - 閉幕式 - 自由活動</h3></div>
+        <ol class="timeline">
+          <li><time>上午</time><span>專題會議口報。</span></li>
+          <li><time>下午</time><span>閉幕式後自由活動。</span></li>
+          <li><time>13:30</time><span>集合，可安排三坊七巷、林覺民故居、西湖公園等福州文化景點。</span></li>
+        </ol>
+        <div class="spotlight"><h4>景點亮點</h4><p>三坊七巷是福州歷史文化街區，由三個坊、七條巷和南後街組成；西湖公園具古典園林風格，適合散步與拍照。</p></div>
+        <div class="day__meta"><span>住宿：中庚喜來登大酒店</span><span>電話：0591-88556666</span></div>
+      </article>
+
+      <article class="day" id="day4" role="tabpanel" aria-labelledby="tab-day4" hidden>
+        <div class="day__title"><p>06/29 星期一</p><h3>飯店 - 於山風景區 - 午餐 - 熊貓世界 - 閩越水鎮</h3></div>
+        <ol class="timeline">
+          <li><time>上午</time><span>前往於山風景區，欣賞白塔、古榕、亭榭與福州城區景觀。</span></li>
+          <li><time>中午</time><span>午餐。</span></li>
+          <li><time>下午</time><span>參觀熊貓世界，了解大熊貓保育與科普展區。</span></li>
+          <li><time>晚間</time><span>前往閩越水鎮，可欣賞水鄉夜景與大型光影秀。</span></li>
+        </ol>
+        <div class="day__meta"><span>住宿：安嘉悅酒店</span><span>電話：0591-83728888</span></div>
+      </article>
+
+      <article class="day" id="day5" role="tabpanel" aria-labelledby="tab-day5" hidden>
+        <div class="day__title"><p>06/30 星期二</p><h3>福州 - 桃園</h3></div>
+        <ol class="timeline">
+          <li><time>清晨</time><span>前往福州長樂機場。</span></li>
+          <li><time>08:45</time><span>搭乘 MF879 返回桃園。</span></li>
+          <li><time>10:25</time><span>抵達桃園，結束福州會議行程。</span></li>
+        </ol>
+        <div class="day__meta"><span>早餐：可愛的家</span><span>請預留機場交通與托運時間</span></div>
+      </article>
+    </section>
+
+    <section class="reference">
+      <div class="section-head"><h2>紙本行程摘要</h2><span>依標準行程整理</span></div>
+      <table>
+        <thead><tr><th>日期</th><th>行程</th><th>住宿 / 電話</th></tr></thead>
+        <tbody>
+          <tr><td>06/26</td><td>桃園飛福州，中庚喜來登註冊，17:50 集合晚餐</td><td>中庚喜來登大酒店 0591-88556666</td></tr>
+          <tr><td>06/27</td><td>研討會開幕，自費平潭島活動 10:30 集合</td><td>中庚喜來登大酒店 0591-88556666</td></tr>
+          <tr><td>06/28</td><td>專題會議口報、下午閉幕式，自由活動，13:30 集合三坊七巷、林覺民故居、西湖公園</td><td>中庚喜來登大酒店 0591-88556666</td></tr>
+          <tr><td>06/29</td><td>於山風景區、午餐、熊貓世界、閩越水鎮</td><td>安嘉悅酒店 0591-83728888</td></tr>
+          <tr><td>06/30</td><td>福州飛桃園</td><td>可愛的家</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="notice">
+      <div class="section-head"><h2>注意事項</h2></div>
+      <ul>
+        <li>行李托運限 1 件，不可超過 23 公斤；手提 1 件 7 公斤。</li>
+        <li>入境與出境大陸，如攜帶行動電源，額定能量不可超過 200Wh，輸出與輸入標示需清楚。</li>
+        <li>目前福建地區氣溫約 32-26 度，請攜帶防曬用品、雨具與薄外套。</li>
+        <li>中國大陸電壓為 220V，插座常見 2 孔圓形、2 孔扁型，建議自備轉接插頭。</li>
+      </ul>
+    </section>
+
+    <section class="contact-panel" aria-label="協助人員">
+      <div class="section-head"><h2>協助人員</h2></div>
+      <a class="contact-link" href="tel:+886933385392">胡依蓁 0933-385392</a>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
