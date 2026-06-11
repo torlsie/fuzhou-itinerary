@@ -99,6 +99,35 @@ const weatherLabels = new Map([
   [99, "強雷雨伴冰雹"]
 ]);
 
+const wttrLabels = new Map([
+  ["sunny", "晴朗"],
+  ["clear", "晴朗"],
+  ["partly cloudy", "局部多雲"],
+  ["cloudy", "多雲"],
+  ["overcast", "陰天"],
+  ["mist", "薄霧"],
+  ["fog", "有霧"],
+  ["patchy rain nearby", "局部短暫雨"],
+  ["light rain", "小雨"],
+  ["moderate rain", "雨"],
+  ["heavy rain", "大雨"],
+  ["thundery outbreaks possible", "可能雷雨"]
+]);
+
+async function fetchWithTimeout(url, timeout = 8000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeout);
+
+  try {
+    return await fetch(url, {
+      cache: "no-store",
+      signal: controller.signal
+    });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 function formatWeatherDate(value) {
   return new Intl.DateTimeFormat("zh-TW", {
     month: "numeric",
@@ -127,24 +156,58 @@ function renderWeather(data) {
   }).join("");
 }
 
-async function loadWeather() {
-  const endpoint = "https://api.open-meteo.com/v1/forecast?latitude=26.0614&longitude=119.3061&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FShanghai&forecast_days=3";
+function renderWttrWeather(data) {
+  weatherGrid.innerHTML = data.weather.slice(0, 3).map((day) => {
+    const noon = day.hourly.find((item) => item.time === "1200") || day.hourly[4] || day.hourly[0];
+    const rawDesc = noon.weatherDesc?.[0]?.value?.trim() || "Weather";
+    const desc = wttrLabels.get(rawDesc.toLowerCase()) || rawDesc;
+    const rain = noon.chanceofrain ?? "--";
 
-  try {
-    const response = await fetch(endpoint, { cache: "no-store" });
-    if (!response.ok) throw new Error("weather unavailable");
-
-    const data = await response.json();
-    renderWeather(data);
-    weatherStatus.textContent = "即時更新";
-  } catch {
-    weatherStatus.textContent = "可查看完整預報";
-    weatherGrid.innerHTML = `
-      <a class="weather-card weather-card--loading" href="https://m.nmc.cn/publish/forecast/AFJ/fuzhou.html" target="_blank" rel="noopener">
-        天氣暫時無法載入，點此查看中央氣象台福州預報
-      </a>
+    return `
+      <article class="weather-card">
+        <span class="weather-card__date">${formatWeatherDate(day.date)}</span>
+        <strong class="weather-card__main">${day.mintempC}-${day.maxtempC}°C</strong>
+        <span class="weather-card__desc">${desc}</span>
+        <span class="weather-card__rain">降雨機率 ${rain}%</span>
+      </article>
     `;
+  }).join("");
+}
+
+async function loadWeather() {
+  const endpoints = [
+    {
+      url: "https://wttr.in/Fuzhou?format=j1",
+      render: renderWttrWeather,
+      label: "即時更新"
+    },
+    {
+      url: "https://api.open-meteo.com/v1/forecast?latitude=26.0614&longitude=119.3061&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FShanghai&forecast_days=3",
+      render: renderWeather,
+      label: "即時更新"
+    }
+  ];
+
+  for (const endpoint of endpoints) {
+    try {
+      const response = await fetchWithTimeout(endpoint.url);
+      if (!response.ok) continue;
+
+      const data = await response.json();
+      endpoint.render(data);
+      weatherStatus.textContent = endpoint.label;
+      return;
+    } catch {
+      // Try the next weather source before showing the manual forecast link.
+    }
   }
+
+  weatherStatus.textContent = "可查看完整預報";
+  weatherGrid.innerHTML = `
+    <a class="weather-card weather-card--loading" href="https://m.nmc.cn/publish/forecast/AFJ/fuzhou.html" target="_blank" rel="noopener">
+      天氣暫時無法載入，點此查看中央氣象台福州預報
+    </a>
+  `;
 }
 
 loadWeather();
